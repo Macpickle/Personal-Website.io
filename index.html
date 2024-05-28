@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/a74a21bfbd.js" crossorigin="anonymous"></script>
+
+    </head>
+
+<body>
+    <div class = "content-container">
+        <div class = "fade-in-content">
+            <div class = "title-container">
+                <h1 id = "title">Dylan MacLeod</h1>
+                <h5>a <span class = "auto-type"></span></h5>
+            </div>
+
+            <div class = "useful-links">
+                <a href = "https://www.linkedin.com/in/dylan-macleod-b167b02ba/">
+                    <div id = "icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <p class = "reveal">LINKEDIN</p>
+                    </div>
+                </a>
+                <a href = "https://github.com/Macpickle">
+                    <div id = "icon">
+                        <i class="fa-brands fa-github"></i>
+                        <p class = "reveal">GITHUB</p>
+                    </div>
+                </a>
+                <a href = mailto:"dylanmacleod2005@gmail.com">
+                    <div id = "icon">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p class = "reveal">MAIL</p>
+                    </div>
+                </a>
+                <div class = "highlight-information">
+                    <a href = "">
+                        <div id = "icon">
+                            <i class="fa-regular fa-file"></i>
+                            <p class = "reveal">HOME</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class = "list">
+                <input type="radio" id="home" name="toggle" checked="checked"><label for="home" id = "home-text">Home</label> <br>
+                <input type="radio" id="projects" name="toggle"><label for="projects">Projects</label> <br>
+                <input type="radio" id="skills" name="toggle"><label for="skills">Skills</label> <br>
+                <input type="radio" id="experience" name="toggle"><label for="experience">Experience</label> <br>
+
+            <section id="home-container">
+                <div class = "home-content" id = "home-content">
+                    <h1>Hello, I'm Dylan Macleod.</h1>
+                    <p>Currently a student, seeking to further evolve his learning in the world of Computer Science.</p>
+                    <p>Working towards enhancing his skills to find a job or internship.</p>
+                    <p class = "highlight">Feel free to shoot me an email, or even just look at my <a href = "">resume!</a></p>
+                </div>
+            </section>
+
+            <section id = "projects-text">
+                <div class = "project-container">
+                    <input type = "radio" name = "proj" id = "proj1" checked>
+                    <input type = "radio" name = "proj" id = "proj2">
+                    <input type = "radio" name = "proj" id = "proj3">
+        
+                    <div class = "project-placement">
+                        <label for="proj1" class = "project" id="card1">
+                            <img src="assets/CarSpottersExample.png" alt="Project Image" onclick="if (document.getElementById('proj1').checked) window.open('https://github.com/Macpickle/CarSpotters')">
+                            <div class = "project-text">
+                                <h1>Car Spotters</h1>
+                                <h3>Full Stack Wesbite</h3>
+                            </div>
+                        </label>
+                        
+                        <label for="proj2" class = "project" id = "card2">
+                            <img src = "assets/LCD-WEATHER-IMG.JPG" alt = "Project Image" onclick="if (document.getElementById('proj2').checked) window.open('https://github.com/Macpickle/Arduino-Weather-Sensor-Reader')"">
+                            <div class = "project-text">
+                                <h1>Weather Data Analyzer</h1>
+                                <h3>Arduino Project</h3>
+                            </div>
+                        </label>
+        
+                    <label for="proj3" class = "project" id = "card3">
+                        <img src="assets/Personal.png" alt="Project Image" onclick="if (document.getElementById('proj3').checked) window.location.href = 'index.html'">
+                        <div class = "project-text">
+                            <h1>Personal Portfolio Website</h1>
+                            <h3>HTML/CSS/JS Website</h3>
+                        </div>
+                    </label>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills-text">
+                <div class = "language-container">
+                    <div class = "language">
+                        <h3>Python</h3>
+                        <div class = "progress-bar">
+                            <div class = "progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class = "language">
+                        <h3>Java</h3>
+                        <div class = "progress-bar">
+                            <div class = "progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class = "language">
+                        <h3>C++</h3>
+                        <div class = "progress-bar">
+                            <div class = "progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class = "language">
+                        <h3>JavaScript</h3>
+                        <div class = "progress-bar">
+                            <div class = "progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class = "language">
+                        <h3>HTML/CSS</h3>
+                        <div class = "progress-bar">
+                            <div class = "progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "words">
+                    <h3>Git</h3>
+                    <h3>Linux</h3>
+                    <h3>React</h3>
+                    <h3>Express JS</h3>
+                    <h3>RESTful API</h3>
+                    <h3>OOP</h3>
+                    <h3>Data Structures</h3>
+                    <h3>Algorithms</h3>
+                    <h3>CustomTKinter</h3>
+                    <h3>Pandas</h3>
+                    <h3>Fullstack Development</h3>
+                    <h3>WebSockets</h3>
+                    <h3>MongoDB</h3>
+                </div>
+            </section>
+
+            <section id = "experience-text">
+                <div class = "experience-container">
+                    <div class = "job-container">
+                        <h2 class = "title">Experience</h2>
+                        <button onclick="if (document.getElementById('proj1').checked) window.open('https://github.com/Macpickle/CarSpotters')">
+                            <div class = "job">
+                                <div class = "title">
+                                    <h3>CarSpotters</h3>
+                                    <p>- 2024-Present</p>
+                                </div>
+                                <p>Working as a fullstack developer on my website<br>JavaScript,RESTful API, WebSockets, MongoDB, Express, RESTful API, etc...</p>
+                                <div class = "completeness">
+                                    <p>Completeness: <span>80%</span></p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class = "education-container">
+                        <h2 class = "title">Education</h2>
+                        <div class = "education">
+                            <h3 class = "title">Ontario Tech University</h3>
+                            <p>Currently a second year student working towards a <span>Bachelor of Science</span>. Looking to further develop critical skills within computer science.</p>
+                        
+                            <div class = "progress">
+                                <div class = "stack">
+                                    <h3>completed:</h3>
+                                    <div class = "bar">
+                                        <div class = "progress" id = "progress"></div>
+                                    </div>
+                                </div>
+                                <p id = "time-left"></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src = "script.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('.auto-type', {
+            strings: ["Web Developer", "Software Engineer", "Programmer", "Student", "Learner"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        });
+    </script>
+</html>

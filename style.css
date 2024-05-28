@@ -1,0 +1,583 @@
+@import "animation.css";
+
+:root {
+    --main-background: rgb(14, 14, 14);
+    --secondary-background: rgb(30, 30, 30);
+    --border: rgb(40, 40, 40);
+    --hover-colour-bright: rgb(236, 236, 236);
+    --hover-colour: rgb(182, 182, 182);
+    --regular-text: rgb(119, 119, 119);
+    --title-text: rgb(150, 150, 150);
+    --radio-border: rgb(18, 18, 18);    
+    --special-text: rgb(240, 197, 255);
+    --special-text-hover: rgb(225, 144, 255);
+    --experience-background: rgb(12, 12, 12);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Century Gothic';
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--main-background);
+}
+
+
+/*
+    for fade in effect on all elements
+*/
+
+.fade-in-content {
+    animation: fade-in 1s ease-in-out;
+}
+
+/*
+    classes
+*/
+
+.content-container {
+    position: absolute;
+    top: 1rem; 
+    left: 1rem; 
+    right: 1rem; 
+    bottom: 1rem;
+    background-color: var(--secondary-background);
+    border: 2px solid var(--border); 
+    background-image: url("assets/bsg-stars.png");
+    box-shadow: 0 0 5px 2px var(--border);
+    z-index: 0;
+}
+
+.content-container .title-container {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.content-container .title-container h1 {
+    color: var(--title-text);
+    font-weight: 100;
+}
+
+.content-container .title-container h5 {
+    color: var(--regular-text);
+    font-weight: 100;
+}
+
+.content-container .list {
+    display: inline-block;
+    color: var(--regular-text);
+    margin-left: 1rem;
+}
+
+.content-container .list input[name="toggle"] {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid var(--radio-border);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.content-container .list input[name="toggle"]:checked::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--hover-colour);
+    border-radius: 50%;
+}
+
+.content-container .list label {
+    margin-left: 0.5rem;
+}
+
+.content-container .list input[name="toggle"]:hover + label {
+    cursor: pointer;
+    color: var(--hover-colour);
+}
+
+/*
+    useful links position
+*/
+
+.useful-links {
+    color: var(--regular-text);
+    font-weight: 100;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1.5em;
+    margin-right: 1.5em;
+    gap: 0.5em;
+}
+
+.useful-links a {
+    display:flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: var(--regular-text);
+}
+
+.useful-links a:hover {
+    color: var(--hover-colour);
+}
+
+.reveal {
+    display: none;
+}
+
+#icon:hover > i {
+    color: var(--special-text);
+}
+
+#icon:hover > .reveal {
+    display: inline;
+}
+
+.useful-links i {
+    font-size: 1.5rem;
+}
+
+/*
+    home radio button
+*/
+
+.content-container #home-container {
+    display: none;
+}
+
+.content-container #home-container h1 {
+    color: var(--title-text);
+    font-weight: 100;
+
+}
+
+.content-container #home-container p {
+    color: var(--regular-text);
+    font-weight: 100;
+}
+
+.content-container #home-container .highlight {
+    color: var(--hover-colour);
+}
+
+#home:checked ~ #home-container
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+
+}
+
+.home-content {
+    animation: fade-right 0.25s ease-in;
+}
+
+.home-content a {
+    color: var(--special-text);
+    text-decoration: none;
+}
+
+.home-content a:hover {
+    color: var(--special-text-hover);
+    text-shadow: 1px 1px 10px var(--hover-colour);
+}
+
+/*
+    projects radio button
+*/
+
+#projects-text
+{
+    display:none;
+}
+
+#projects:checked ~ #projects-text
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+.project-container input[type=radio] {
+    display: none;
+}
+
+
+.project {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform .4s ease;
+    background-color: var(--secondary-background);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.project-placement {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    flex-direction: column;
+
+}
+
+.project-container {
+    width: 100%;
+    height: 75%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    z-index: -1;
+    animation: fade-right 0.5s ease-in;
+
+}
+
+.project-placement img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 15px var(--hover-colour);
+    border: 3px solid black;
+    text-decoration: none;
+}
+
+.project-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0 0 10px 10px;
+    color: var(--hover-colour);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.project-placement h1, .project-placement h3 {
+    text-align: center;
+    display: none;
+}
+
+#proj1:checked ~ .project-placement #card1 h1, #proj2:checked ~ .project-placement #card2 h1, #proj3:checked ~ .project-placement #card3 h1,
+#proj1:checked ~ .project-placement #card1 h3, #proj2:checked ~ .project-placement #card2 h3, #proj3:checked ~ .project-placement #card3 h3 {
+    display: block;
+    animation: fade-in 0.5s ease-in;
+}
+
+#proj1:checked ~ .project-placement #card3, #proj2:checked ~ .project-placement #card1, #proj3:checked ~ .project-placement #card2 {
+  transform: translatex(-40%) scale(.8);
+  opacity: .4;
+  z-index: 2;
+}
+
+#proj1:checked ~ .project-placement #card2, #proj2:checked ~ .project-placement #card3, #proj3:checked ~ .project-placement #card1 {
+  transform: translatex(40%) scale(.8);
+  opacity: .4;
+  z-index: 2;
+}
+
+#proj1:checked ~ .project-placement #card1, #proj2:checked ~ .project-placement #card2, #proj3:checked ~ .project-placement #card3 {
+  transform: translatex(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+
+#proj1:checked ~ .project-placement #card1:hover,
+#proj2:checked ~ .project-placement #card2:hover,
+#proj3:checked ~ .project-placement #card3:hover {
+    transform: scale(1.05);
+    animation: flash 2.5s infinite;
+}
+
+/*
+    skills 
+*/
+
+#skills-text
+{
+    display:none;
+}
+
+
+#skills:checked ~ #skills-text
+{
+  display: flex;
+}
+
+#skills-text {
+    transition: background .4s ease-in;
+    width: fit-content;
+    align-items: flex-start;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 6em;
+    margin-left: 5em;
+    flex-direction: column;
+    animation: fade-right 1s ease-in-out forwards;
+    text-align: lefts;
+    max-height: 15em;
+    width: 100%;
+}
+
+.language-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    flex-direction: column;
+}
+
+.language {
+    opacity: 0;
+    animation: fade-right 0.5s ease-in-out forwards;
+}
+
+#skills-text h3 {
+    margin-left: 1em;
+    margin-top: 10px;
+    font-weight: 100;
+    color: var(--regular-text);
+}
+
+#skills-text .language .progress-bar {
+    width: 15em;
+    height: 20px;
+    background-color: var(--regular-text);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#skills-text .language .progress-bar .progress{
+    background-color: var(--hover-colour);
+    height: 100%;
+    border-radius: 10px;
+}
+
+/*
+    experience
+*/
+#experience-text {
+    display:none;
+}
+
+#experience:checked ~ #experience-text
+{
+  display: flex;
+}
+
+.experience-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+    display:flex;
+    flex-direction: row
+    
+}
+
+.experience-container button{
+    background-color: transparent;
+    border: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.experience-container .job-container,
+.experience-container .education-container {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.experience-container .education-container .title,
+.experience-container .job-container .title {
+    color: var(--title-text);
+    font-weight: 100;
+    width:100%;
+    text-align: center;
+}
+
+.experience-container .job-container .job {
+    margin-top: 1rem;
+    background-color: var(--experience-background);
+    border: 2px solid var(--border);
+    width: 80%;
+    height: 100%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.experience-container .job-container .job:hover {
+    transform: scale(1.025);
+    box-shadow: 0px 0px 5px var(--hover-colour-bright);
+}
+
+.experience-container .job-container .job .title {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: 1rem;
+}
+
+.experience-container h3{
+    width: fit-content;
+    color: var(--title-text);
+    font-weight: 100;
+}
+
+.experience-container .job-container .job .title p{
+    color: var(--title-text);
+    font-weight: 100;
+    font-size: 0.75rem;
+    margin-top: 0;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+.experience-container .job-container .job p {
+    margin-top: 0.5rem;
+    color: var(--regular-text);
+    font-weight: 100;
+    font-size: 0.8rem;
+    text-align: start;
+}
+
+.experience-container .job-container .completeness {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.experience-container .job-container .completeness span {
+    color: var(--special-text)
+}
+
+/*
+    education 
+*/
+
+.experience-container .education {
+    margin-top: 0.5rem;
+    background-color: var(--experience-background);
+    border: 2px solid var(--border);
+    width: 80%;
+    height: 50%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.experience-container .education span{
+    color: var(--special-text)
+}
+
+.experience-container .education .progress {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+
+.experience-container .education .progress .bar {
+    background-color: var(--secondary-background);
+    border: 2px solid var(--border);
+    width: 85%;
+    height: 12.5%;
+    border-radius: 5rem;
+}
+
+.experience-container .education .progress .bar .progress {
+    background-color: var(--hover-colour);
+    border-radius: 5rem;
+}
+
+.experience-container .education .progress #time-left {
+    color: var(--special-text);
+    width: 15%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-weight: 100;
+    font-size: 0.75rem;
+}
+
+.experience-container .education .progress .stack {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.experience-container .education .progress .stack h3{
+    font-weight: 100;
+    font-size: 0.75rem;
+}
