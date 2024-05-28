@@ -423,8 +423,7 @@ body {
     width: 75%;
     height: 75%;
     display:flex;
-    flex-direction: row
-    
+    flex-direction: row;
 }
 
 .experience-container button{
@@ -444,7 +443,9 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    animation: fade-right 0.25s ease-in;
 }
+
 .experience-container .education-container .title,
 .experience-container .job-container .title {
     color: var(--title-text);
